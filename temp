@@ -1,29 +1,67 @@
-    <nav class="navbar-dark navbar-expand-md navbar-color">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-2">
-            <a class="navbar-brand" href="#">
-                <p>Q and A</p>
-            </a>
-            <div class="pull-right">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar5" aria-controls="navbar5" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              </div>
-          </div>
-              <div class="col-md-10">
-                  <div class="navbar-collapse collapse" id="navbar5">
-        <form class="form-inline my-2 my-lg-0">
-          <div class="input-group search-box">
-              <input type="text" class="form-control" placeholder="What are you looking for?">
-              <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
-              </span>
-            </div>
-        </form>
-        </div>
-        </div>
-      </div>
-      </div>
+
+  .navbar-color {
+    background-color:#2B6DAD;
+    padding: .5rem 1rem;
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+    box-shadow: 0px 1px 7px 0px black;
+  }
+  
+  .navbar-expand-lg .navbar-nav .nav-link {
+    color: #fff;
+  }
+ p {
+    margin-bottom: 0px;
+   
+ }
+
+  .search-box {
+    position: relative;
+    height: 34px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 200;
+    color: #0A4369;
+   
+  }
+  .search-box input {
+    border: 0;
+    border-radius: 19px !important;
+    padding-right: 28px;
+    font-size: 15px;
+    width: 19rem;
+  }
+  
+  .search-box .input-group-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 999;
+  }
+  
+  .search-box .input-group-btn button {
+    background-color: transparent;
+    border: 0;
+    padding: 4px 8px;
+    color: rgba(0,0,0,.4);
+    font-size: 20px;
+  }
+  
+  .search-box .input-group-btn button:hover,
+  .search-box .input-group-btn button:active,
+  .search-box .input-group-btn button:focus {
+    color: rgba(0,0,0,.4);
+  }
+  
+  @media (min-width: 768px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+      padding-right: .7rem;
+      padding-left: .7rem;
+    }
+    
+    .search-box {
+      width: 300px !important;
+    }
       
-      </nav>
+  }
+  
