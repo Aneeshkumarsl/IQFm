@@ -1,376 +1,174 @@
-.buttonTop {
-    margin-top: 10px;
-    margin-left:auto;margin-right:auto;display:block;
-}
-.buttonTopTopics {
-  margin-top: 50px;
-  margin-left:auto;
-  margin-right:auto;
-  display:block;
-  font-family: Georgia,Times,"Times New Roman","Hiragino Kaku Gothic Pro","Meiryo",serif;
-  letter-spacing:2px;
-}
-.book {
-  padding-right: 10px;
- 
-}
-.vl {
-    border-left: 1px solid #ddd;
-    position: absolute;
-    height: 100%;
-    top: 0px;
-    z-index: 1;
-
-  }
-  
-  h5 {
-    margin-top: 10px; 
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-style: italic;
-    color: #0A4369;
+  ngOnInit() {
   }
 
-  .filter{
-    font-family: 'Playfair Display', serif;
-    font-weight: 200;
-    color: #0A4369;
+  sideDetails = [
+    {
+      "liName":"Questions",
+      "icon" : "fa fa-question-circle-o liSpace"
+  },
+  {
+    "liName":"Tags",
+    "icon" : "fa fa-tags liSpace"
+  },
+  {
+    "liName":"Badges",
+    "icon" : "fa fa-trophy liSpace"
+  },
+  {
+    "liName":"Categories",
+    "icon" : "fa fa-tasks liSpace"
+  },
+  {
+    "liName":"Users",
+    "icon" : "fa fa-users liSpace"
   }
-.pTop {
-    margin-top: 17px; 
-}
-label {
-    width: 100px;
-    margin-top: 6px;
-}
-.select2 {
-    width: 68px;
-    margin-left: 6px;
-}
-  .divPadding {
-    display: inherit;
-    margin-top: 17px;
+]
+  quesAndAnswers=[
+    {
+    "question": "What is Mongo DB ?",
+    "answer" :"MongoDB is a cross-platform document-oriented database program.Classified as a NoSQL database program, MongoDB uses JSON-like documents with schema.",
+    "tagDetails":[
+      {"tagName":"Business"},
+      { "tagName":"Technology"}
+    ],
+    "viewersDetails":[
+      {"labelNumber":10,
+       "labelName":"Views",
+      "numberStyle":"roundView",
+      "nameStyle":"adjustView"},
+       {"labelNumber":20,
+       "labelName":"Votes",
+       "numberStyle":"roundVotes",
+       "nameStyle":"adjustVotes"
+      },
+       {"labelNumber":30,
+       "labelName":"Answers",
+       "numberStyle":"roundAnswer",
+       "nameStyle":"adjustAnswer"},
+    ],
+    "lineStyle":"set-border-bottom-main"
+  },
+  {
+    "question": "What is “Namespace” in MongoDB ?",
+    "answer" :"MongoDB stores BSON (Binary Interchange and Structure Object Notation) objects in the collection. The concatenation of the collection name and database name is called a namespace.",
+    "tagDetails":[
+      {"tagName":"MongoDB"},
+      { "tagName":"Technology"},
+      {"tagName":"google"}
+    ],
+    "viewersDetails":[
+      {"labelNumber":1,
+       "labelName":"Views",
+      "numberStyle":"roundView",
+      "nameStyle":"adjustView"},
+       {"labelNumber":20,
+       "labelName":"Votes",
+       "numberStyle":"roundVotes",
+       "nameStyle":"adjustVotes"
+      },
+       {"labelNumber":3,
+       "labelName":"Answers",
+       "numberStyle":"roundAnswer",
+       "nameStyle":"adjustAnswer"},
+    ],
+    "lineStyle":"set-border-bottom-main"
+  },
+  {
+    "question": "What is sharding in MongoDB ?",
+    "answer" :"The procedure of storing data records across multiple machines is referred as Sharding. It is a MongoDB approach to meet the demands of data growth. It is the horizontal partition of data in a database or search engine. Each partition is referred as shard or database shard.",
+    "tagDetails":[
+      {"tagName":"Business"},
+      { "tagName":"Technology"}
+    ],
+    "viewersDetails":[
+      {"labelNumber":11,
+       "labelName":"Views",
+      "numberStyle":"roundView",
+      "nameStyle":"adjustView"},
+       {"labelNumber":12,
+       "labelName":"Votes",
+       "numberStyle":"roundVotes",
+       "nameStyle":"adjustVotes"
+      },
+       {"labelNumber":31,
+       "labelName":"Answers",
+       "numberStyle":"roundAnswer",
+       "nameStyle":"adjustAnswer"},
+    ],
+    "lineStyle":"set-border-bottom-main"
+  },
+  {
+    "question": "Explain what is a replica set ?",
+    "answer" :"A replica set is a group of mongo instances that host the same data set. In replica set, one node is primary, and another is secondary. From primary to the secondary node all data replicates.",
+    "tagDetails":[
+      {"tagName":"Business"},
+      { "tagName":"Technology"}
+    ],
+    "viewersDetails":[
+      {"labelNumber":15,
+       "labelName":"Views",
+      "numberStyle":"roundView",
+      "nameStyle":"adjustView"},
+       {"labelNumber":25,
+       "labelName":"Votes",
+       "numberStyle":"roundVotes",
+       "nameStyle":"adjustVotes"
+      },
+       {"labelNumber":35,
+       "labelName":"Answers",
+       "numberStyle":"roundAnswer",
+       "nameStyle":"adjustAnswer"},
+    ],
+    "lineStyle":"set-border-bottom-main"
+  },
+  {
+    "question": "How replication works in MongoDB ?",
+    "answer" :"Across multiple servers, the process of synchronizing data is known as replication. It provides redundancy and increase data availability with multiple copies of data on different database server. Replication helps in protecting the database from the loss of a single server.",
+    "tagDetails":[
+      {"tagName":"MongoDB"},
+      { "tagName":"Technology"},
+      {"tagName":"google"}
+    ],
+    "viewersDetails":[
+      {"labelNumber":10,
+       "labelName":"Views",
+      "numberStyle":"roundView",
+      "nameStyle":"adjustView"},
+       {"labelNumber":20,
+       "labelName":"Votes",
+       "numberStyle":"roundVotes",
+       "nameStyle":"adjustVotes"
+      },
+       {"labelNumber":30,
+       "labelName":"Answers",
+       "numberStyle":"roundAnswer",
+       "nameStyle":"adjustAnswer"},
+    ],
+    "lineStyle":"set-border-bottom-main"
   }
-  .paddimg {
-    padding-left: 0px;
-    background-color: #eef1f9;
+]
+technologies = [
+  {
+    "techName":"Business"
+  },
+  {
+    "techName":"MongoDB"
+  },
+  {
+    "techName":"Technology"
   }
-  .set-border-bottom {
-    border-bottom: 1px solid #DDD;
-    float: left;
-    width: 100%;
-    margin-bottom: 10px;
-    margin-top: 15px;
-}
-.set-border-bottomImg {
-  border-bottom: 1px solid #DDD;
-  float: left;
-  width: 100%;
-  margin-bottom: 10px;
-  margin-top: 2px;
-}
-
-.set-border-bottom-main {
-  border-bottom: 1px solid #DDD;
-  float: left;
-  width: 100%;
-  margin-bottom: 10px;
-  margin-top: 15px;
-}
-
-.set-border-bottom-tag {
-  border-bottom: 1px solid #DDD;
-  position: relative;
-  width: 85%;
-  margin-bottom: 10px;
-  margin-top: 50px;
-  left: 27px;
-}
-.card {
-    background-color: transparent;
-    border-right: 0px;
-    border-left: 7px solid #007bff;
-    border-top: 0px;
-    border-bottom: 0px;
-    border-radius: 0px;
-    margin-top: 50px;
-    margin-left: 15px;
-}
-.card-body {
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
-    padding-left: 10px; 
-    color: #52617a
-}
-
-.card1 {
-    background-color: transparent;
-    border-right: 0px;
-    border-left: 7px solid #f7941d;
-    border-top: 0px;
-    border-bottom: 0px;
-    border-radius: 0px;
-    margin-top: 25px;
-    margin-left: 15px;
-}
-h3 {
-    color: black
-}
-
-  @media (max-width: 768px) {
-    .buttonTop {
-        margin-top: 10px;
-        margin-left: 0px;
-    }
-    }
-      a {
-          text-decoration: none;
-      }
-      .colPadding {
-        padding-left: 0px;
-        padding-right: 0px;
-      }
-     .colPadding-2 {
-        padding-left: 0px;
-        padding-right: 0px;
-        top: 44px;
-     }
-     .colPadding-3 {
-      top: 53px;
-   }
-     .nav-tabs {
-        padding-left: 15px;
-     }
-     .tags {
-      border: 1px solid #DDD;
-      border-radius: 15px;
-      padding-top: 3px;
-      padding-bottom:3px;
-      text-align: center;
-      font-size: small;
-      font-weight: 500;
-      background-color: #E1ECF4;
-      color: #2b6dad;
-      font-family: Georgia,Times,"Times New Roman","Hiragino Kaku Gothic Pro","Meiryo",serif;
-      margin-bottom: 5px;
-
-      &:hover {
-        background-color: #d0e4f3;
-      }
+]
+topQuestions = [
+  {
+    "question": " What is the syntax to create a collection and to drop a collection in MongoDB?"
+  },
+  {
+    "question": " What is the syntax to create a collection and to drop a collection in MongoDB?"
+  },
+  {
+    "question": " What is the syntax to create a collection and to drop a collection in MongoDB?"
+  },
+  {
+    "question": " What is the syntax to create a collection and to drop a collection in MongoDB?"
   }
-    .roundView {
-      border: 1px solid #9B764F;
-      border-radius: 50px;
-      height: 45px;
-      width: 45px;
-      padding-top: 10px;
-      text-align: center;
-      background-color: #fff;
-      color: #9B764F;
-
-    &:hover{
-      background-color:  #9B764F;
-      color: #fff;
-      }
-
-    }
-
-    .roundAnswer {
-      border: 1px solid #1bba9b;
-      border-radius: 50px;
-      height: 45px;
-      width: 45px;
-      padding-top: 10px;
-      text-align: center;
-      background-color: #fff;
-      color: #1bba9b;
-
-    &:hover{
-      background-color:  #1bba9b;
-      color: #fff;
-      }
-
-    }
-
-    .roundVotes {
-      border: 1px solid #6a737c;
-      border-radius: 50px;
-      height: 45px;
-      width: 45px;
-      padding-top: 10px;
-      text-align: center;
-      background-color: #fff;
-      color: #6a737c;
-    &:hover{
-      background-color:  #6a737c;
-      color: #fff;
-      }
-
-    }
-    .adjustView {
-      text-align: center;
-      font-size: small;
-      font-weight: 500;
-      font-family: Georgia,Times,"Times New Roman","Hiragino Kaku Gothic Pro","Meiryo",serif;
-      color: #9B764F;
-      padding-top: 15px;
-  
-    }
-    .adjustVotes {
-      text-align: center;
-      font-size: small;
-      font-weight: 500;
-      font-family: Georgia,Times,"Times New Roman","Hiragino Kaku Gothic Pro","Meiryo",serif;
-      color: #6a737c;
-      padding-top: 15px;
-    }
-    .adjustAnswer {
-      text-align: center;
-      font-size: small;
-      font-weight: 500;
-      font-family: Georgia,Times,"Times New Roman","Hiragino Kaku Gothic Pro","Meiryo",serif;
-      color: #1bba9b;
-      padding-top: 15px;
-    }
-    
-.roundAlign {
-  text-align: -webkit-center;
-  cursor: pointer;
-}
-    
-p {
-  font-family: "Roboto", sans-serif;
-  color: #005D7F;
-  font-weight: 300;
-  font-size: 0.875rem;
-  width: 500px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-h4 {
-  font-size: 20px;
-  font-family: "Open Sans', sans-serif";
-  font-weight: 600;
-  color: #2b397b;
-  cursor: pointer;
-
-  &:hover{
-
-    color: #d50905;
-  }
-  
-}
-
-.flex {
-  display: flex;
-}
-
-img {
-  height: 50px;
-  width: 50px;
-}
-
-.ulStyle {
-  list-style-type: none;
-  padding-left: 15px;
-  font-family: 'Playfair Display', serif;
-  font-weight: 500;
-  color: #0A4369;
-  cursor: pointer;
-  &:hover{
-
-    color: #d50905;
-  }
-}
-.liSpace {
-  padding-right: 15px;
-}
-
-h2 {
-  padding-left: 15px;
-  font-size: 17px;
-  text-transform: uppercase;
-  font-weight: 900;
-  position: relative;
-  top: 50px;
-  font-family: "Open Sans', sans-serif";
-}
-.padd {
-  padding-left: 15px;
-  display: flex;
-}
-
-.ques {
-  color: #0F69D2;
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 15px;
-}
-
-
-
-
-
-
-
-.project-tab #tabs{
-  background: #007b5e;
-  color: #eee;
- 
-}
-.project-tab #tabs h6.section-title{
-  color: #eee;
-  border-top-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px;
-}
-.project-tab #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-  color: black;
-  background-color: transparent;
-  border-color: transparent transparent #f3f3f3;
-  border-bottom: 4px solid  #f7941d;
-  font-family: 'Cardo', serif;
-  font-size: 1.0em;
-  
-}
-.project-tab .nav-link {
-  border: 1px solid transparent;
-  border-top-left-radius: .25rem;
-  border-top-right-radius: .25rem;
-  font-family: 'Cardo', serif;
-  font-size: 1.0em;
-  padding-left: 16px;
-  border:0px
-}
-.project-tab .nav-link:hover {
-  border-bottom: 4px solid #fbcdcf;
-  font-family: 'Cardo', serif;
-  font-size: 1.0em;
-  
-}
-
-.nav-tabs .nav-item {
-  margin-bottom: -2px;
-  margin-left: 15px;
-}
-
-.project-tab a{
-  text-decoration: none;
-  color: #333;
-  font-weight: 600;
- 
-}
-.nav-tabs {
-  padding-left: 15px;
-    margin-bottom: 0px;
-    position: relative;
-    bottom: 15px;
-    
-}
-
-
-.rowPadding {
-  margin-left: 0px;
-  margin-right: 0px;
-}
+]
