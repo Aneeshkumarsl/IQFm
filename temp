@@ -1,67 +1,172 @@
 
-  .navbar-color {
-    background-color:#2B6DAD;
-    padding: .5rem 1rem;
-    position: sticky;
-    top: 0px;
-    z-index: 2;
-    box-shadow: 0px 1px 7px 0px black;
-  }
-  
-  .navbar-expand-lg .navbar-nav .nav-link {
-    color: #fff;
-  }
- p {
-    margin-bottom: 0px;
-   
- }
+<div class="container-fluid  h-100">
+<div class="row h-100">
+  <div class="col-md-2">  
+<button type="button" class="btn btn-primary buttonTop"><i class="fa fa-plus"></i> ASK A QUESTION</button>
+<div class="row">
+  <div class="col-md-12 colPadding-2">
+<span class="set-border-bottom"></span>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-12 colPadding-3">
+  <ul class="ulStyle" *ngFor='let detail of sideDetails'>
+    <li><i class="{{detail.icon}}"></i>{{detail.liName}}</li>
+  </ul>
+  </div>
+</div>
 
-  .search-box {
-    position: relative;
-    height: 34px;
-    font-family: 'Playfair Display', serif;
-    font-weight: 200;
-    color: #0A4369;
-   
-  }
-  .search-box input {
-    border: 0;
-    border-radius: 19px !important;
-    padding-right: 28px;
-    font-size: 15px;
-    width: 19rem;
-  }
+<div class="row">
+    <div class="col-md-12 colPadding-2">
+  <span class="set-border-bottom"></span>
+  </div>
+  </div>
+  <div class="row ">
+    <button type="button" class="btn btn-primary buttonTopTopics" (click)='aneeshkumar()'><i class="fa fa-book book"></i>All Topics</button>
+    <span class="set-border-bottom"></span> 
+  </div>
+</div>
+
+  <div class="col-md-8" >
+      <div class="row">
+      <span class="vl d-none d-md-block"></span>
+      <div class="col-md-4 flex divPadding">
+        <img src="../../assets/questions.jpeg">
+    <h5>All Questions</h5>
+  </div>
+  <div class="col-md-6 offset-md-2 divPadding">
+    <label class="filter">Filter By</label>
+<select class="form-control selcls filter">
+  <option>Categories</option>
+<option>Aneesh</option> 
+<option>Selva</option>
+</select>
+<select class="form-control selcls select2 filter">
+    <option>All</option>
+  <option>1</option> 
+  <option>2</option>
+  </select>
+  </div>
+  </div>
+  <div class="row">
+      <span class="set-border-bottomImg"></span>
+      <div class="col-md-12 colPadding">  
+    <div id="tabs" class="project-tab">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="latest-tab" data-toggle="tab" href="#latest" role="tab" aria-controls="nav-home" aria-selected="true">Latest</a>
+                            <a class="nav-item nav-link" id="votes-tab" data-toggle="tab" href="#votes" role="tab" aria-controls="nav-profile" aria-selected="false">Votes</a>
+                            <a class="nav-item nav-link" id="unAnswered-tab" data-toggle="tab" href="#unAnswered" role="tab" aria-controls="nav-contact" aria-selected="false">Unanswered</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="latest" role="tabpanel" aria-labelledby="latest-tab" *ngFor='let QandA of quesAndAnswers'>
+                            <div class="row rowPadding">
+                                <div class="col-md-8">
+                         <h4 (click)='aneesh()'>{{QandA.question}}</h4>
+                         
+                         <div class="row">
+                            <div class="col-md-12" >
+                         <p>{{QandA.answer}}</p>
+                           </div>
+                          
+                           </div>
+                           
+                           <div class="row" >
+                             <div class="col-md-3" *ngFor='let tagDetail of QandA.tagDetails'>
+                           <div class="tags">{{tagDetail.tagName}}</div>
+                          </div>
+                        </div>
+                        </div>
+                          <div class="col-md-4">
+                            <div class="row">
+                             <div class="col-md-4 roundAlign" *ngFor='let viewers of QandA.viewersDetails'>
+                             <div class={{viewers.numberStyle}}>
+                               {{viewers.labelNumber}}
+                             </div>
+                             <div class={{viewers.nameStyle}}>
+                               {{viewers.labelName}}
+                             </div>
+                           </div>
+                            </div>
+                          </div>
+                          <span class={{QandA.lineStyle}}></span>
+                        </div>
+                        </div>
+                        <div class="tab-pane fade" id="votes" role="tabpanel" aria-labelledby="votes-tab">
+                            
+                        </div>
+                        <div class="tab-pane fade" id="unAnswered" role="tabpanel" aria-labelledby="unAnswered-tab">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
   
-  .search-box .input-group-btn {
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 999;
-  }
+  </div>
+    </div>
+</div>
+   <div class="col-md-2 paddimg">
+      <span class="vl d-none d-md-block"></span>
+      <div class="row">
+        <div class="col-md-12">
+      <div class="card">
+          <div class="card-body">
+              Questions
+              <h3>18</h3>
+          </div>
+        </div>
+        <div class="card card1">
+            <div class="card-body">
+                Members
+                <h3>9</h3>
+            </div>
+          </div>
+          </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+                <h2>Most Used Tags</h2>
+              </div>
+              <span class="set-border-bottom-tag"></span>
+            </div>
+            <div class="row padd">
+                <div class="col-md-8 " *ngFor='let techno of technologies'>
+              <div class="tags">{{techno.techName}}</div>
+             </div>
+           </div>
+           <div class="row">
+              <div class="col-md-12">
+                <h2>Hot Questions</h2>
+              </div>
+              <span class="set-border-bottom-tag"></span>
+            </div>
+            <div class="row ">
+                <div class="col-md-12 padd" *ngFor='let topQ of topQuestions'>
+                  <div class="col-md-1">
+                      <i class="fa fa-question" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-md-11">
+              <div class="ques"> {{topQ.question}}</div>
+              </div>
+             </div>
+           </div>
+           <div class="row">
+              <div class="col-md-12">
+                <h2>Top Users[Points]</h2>
+              </div>
+              <span class="set-border-bottom-tag"></span>
+            </div>
+            <div class="row padd">
+                <div class="col-md-12" *ngFor='let techno of technologies'>
+              <div class="tags">{{techno.techName}}</div>
+             </div>
+           </div>
+  </div>
   
-  .search-box .input-group-btn button {
-    background-color: transparent;
-    border: 0;
-    padding: 4px 8px;
-    color: rgba(0,0,0,.4);
-    font-size: 20px;
-  }
-  
-  .search-box .input-group-btn button:hover,
-  .search-box .input-group-btn button:active,
-  .search-box .input-group-btn button:focus {
-    color: rgba(0,0,0,.4);
-  }
-  
-  @media (min-width: 768px) {
-    .navbar-expand-lg .navbar-nav .nav-link {
-      padding-right: .7rem;
-      padding-left: .7rem;
-    }
-    
-    .search-box {
-      width: 300px !important;
-    }
-      
-  }
-  
+</div>
+
+</div>
