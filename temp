@@ -1,218 +1,344 @@
-HTML
-
-   <form novalidate [formGroup]="loginForm" (ngSubmit)='login()'>
-      <div class="card card-block login-card">
-        <h3 class="form-label">Welcome </h3>
-        <div class="form-group" [ngClass]="{
-          'has-danger': userId.invalid && (userId.dirty || userId.touched),
-          'has-success': userId.valid && (userId.dirty || userId.touched)}">
-          <div class="input-group">
-            <span class="input-group-addon addon-left" id="username">
-              <i class="fa fa-user fa-fw"></i>
-            </span>
-            <input class="form-control with-primary-addon" placeholder="User Account" type="text" formControlName="userId" required>
-            <div *ngIf="userId.errors && (userId.dirty || userId.touched)">
-         <p class='error' *ngIf= "userId.errors.required">User name is required</p>
-      </div>
-       </div>
-          </div>
-          <div class="form-group" [ngClass]="{
-            'has-danger': Password.invalid && (Password.dirty || Password.touched),
-            'has-success': Password.valid && (Password.dirty || Password.touched)}">
-          <div class="input-group">
-            <span class="input-group-addon addon-left" id="Password">
-              <i class="fa fa-lock fa-fw"></i>
-            </span>
-            <input class="form-control with-primary-addon" placeholder="Password" type="Password" formControlName="Password" required>
-            <div *ngIf="Password.errors && (Password.dirty || Password.touched)">
-              <p class='error' *ngIf="Password.errors.required">Password is required</p>
+<div class="container">
+  <div class="col-md-12  button--">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal--effect-pulse"> <i class="fa fa-user-plus"></i> Add New User</button>
+   </div>
+   <div class="modal fade" id="myModal--effect-pulse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+            <form novalidate   [formGroup]="userForm"  (ngSubmit)="onSubmit()">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title" id="myModalLabel">Add New User Details</h4>
             </div>
+            <div class="modal-body">
+                <div class="row">
+                        <div class="form-group col-md-4"
+                        [ngClass]="{
+                       'has-success': firstName.valid && (firstName.dirty || firstName.touched)}"> 
+                       <label>Customer Name</label>
+                     <input type="text" class="form-control" formControlName="firstName" placeholder="Customer Name"  required >
+                     <div class="feedback"
+           *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+        <p *ngIf="firstName.errors.required">First Name is required</p>
+      </div>
+                   </div>
+                   <div class="form-group col-md-4"
+                        [ngClass]="{
+                       'has-success': companyName.valid && (companyName.dirty || companyName.touched)}"> 
+                       <label>Company Name</label>
+                     <input type="text" class="form-control" formControlName="companyName" placeholder="Company Name"  required >
+                     <div class="feedback"
+           *ngIf="companyName.errors && (companyName.dirty || companyName.touched)">
+        <p *ngIf="companyName.errors.required">Company Name is required</p>
+      </div>
+                   </div>
+                   <div class="form-group col-md-4"
+       [ngClass]="{
+        'has-success': email.valid && (email.dirty || email.touched)
+   }">
+   <label>Email Address</label>
+    <input type="email"
+           class="form-control"
+           formControlName="email"
+           placeholder="Email Address"
+           required>
+    <div class="feedback"
+         *ngIf="email.errors && (email.dirty || email.touched)">
+      <p *ngIf="email.errors.required">Email is required</p>
+      <p *ngIf="email.errors.pattern">The email must contain at least the @ character</p>
+    </div>
+
+  </div>
+                
+                </div>
+                <div class="row">
+                        <div class="form-group col-md-4"
+                        [ngClass]="{
+                         'has-success': role.valid && (role.dirty || role.touched)
+                       }">
+                       <label>Role</label>
+                     <select class="form-control"
+                             formControlName="role">
+                       <option value="">Please select a role</option>
+                       <option *ngFor="let role of Roles"
+                               [value]="role">{{role}}
+                       </option>
+                     </select>
+                   </div>
+                   <div class="form-group col-md-4"
+       [ngClass]="{
+        'has-success': password.valid && (password.dirty || password.touched)
+   }">
+   <label>Password</label>
+    <input type="password"
+           class="form-control"
+           formControlName="password"
+           placeholder="Password"
+           required>
+    <div class="feedback1"
+         *ngIf="password.errors && (password.dirty || password.touched)">
+      <p *ngIf="password.errors.required">Password is required</p>
+      <p *ngIf="password.errors.minlength">Password must be 8 characters, we need another {{password.errors.minlength.requiredLength - password.errors.minlength.actualLength}} characters </p>
+    </div>
+  </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add User</button>
+            </div>
+         </div>
+         </form>
+      </div>
+   </div>
+   </div>
+ 
+   <card cardTitle="User">
+        <div class="col-md-12">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">User Details</h3>
+            </div>              
+            <table class="table table-hover table-responsive" >
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Product Name</th>
+                  <th>Quantity</th>
+                  <th>Contact No</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+              <td>1</td>
+              <td>aneesh</td>
+              <td>1</td>
+              <td>987867547</td>
+              <td><button type="submit" class="btn btn-success" data-toggle="modal" data-target="#myModal--effect-pulse">Edit</button>
+              </td>
+            </tr>
+                </tbody>
+            </table>
+            
           </div>
         </div>
-        
-          <button type='submit'  class="btn btn-lg btn-primary">Login</button>
-          <!-- routerLink="/pages/index" <a href="pages/index" class="btn btn-link">Register Now. →</a> -->
-      </div>
-      </form>
-      
-      
-      
-      TS
-      
-      import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { tap, map, finalize, catchError ,} from 'rxjs/operators';
-import { of, throwError, from } from 'rxjs';
+      </card>
+    
+   
 
-import { AuthService, ApiService } from '@app/core';
+css
 
-import { NgxSmartModalService } from 'ngx-smart-modal'
+button a {
+   letter-spacing: 2px;
+}
 
+h1,
+h2,
+h3,
+p {
+   font-family: 'Oswald';
+   color: #fff;
+}
+
+span {
+   color: #4fe;
+}
+
+h2 {
+   letter-spacing: -2px;
+   font-weight: 600;
+}
+
+h3 {
+   font-weight: 200;
+   color: #fb4;
+   font-size: 19px;
+}
+
+.button-- {
+   float: left;
+   position: relative;
+   padding: 0;
+   margin-bottom: 15px
+}
+
+.modal-content {
+   position: relative;
+   background-color: #fff;
+   -webkit-background-clip: padding-box;
+   background-clip: padding-box;
+   border: 1px solid #999;
+   border: 1px solid rgba(0, 0, 0, .2);
+   border-radius: 0;
+   outline: 0;
+   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+   box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+}
+
+.btn {
+   border-radius: 0px !important;
+}
+
+
+#myModal--effect-pulse.modal.fade .modal-dialog {
+   transform: perspective(400px) rotate3d(0, 1, 0, -360deg);
+   opacity: 0;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   transition: all 0.3s;
+}
+
+#myModal--effect-pulse.modal.fade.in .modal-dialog {
+   transform: perspective(400px) scale3d(.95, .95, .95);
+   animation-timing-function: ease-in;
+   opacity: 1;
+}
+
+
+
+
+.modal-dialog {
+    position: relative;
+    width: 73%;
+    margin: 30px auto;
+    margin-left: 29rem;
+}
+
+
+#myModal--effect-fullwidth.modal.fade .modal-dialog {
+ 
+     -moz-transform: scale(0.3) ;
+   -webkit-transform: scale(0.3) ;
+   -o-transform: scale(0.3) ;
+   -ms-transform: scale(0.3) ;
+   transform: scale(0.3) ;
+   opacity: 1;
+ 
+}
+.modal-dialog.fullwidth--box {
+    width: 90%;
+    margin: 0 auto;
+    left: 5px;
+}
+
+ .modal-content.no--shadow {
+    border: 0;
+    box-shadow: none !important;
+    /* width: 100%; */
+}
+
+#myModal--effect-fullwidth.modal.fade.in .modal-dialog {
+    -moz-transform: scale(1) ;
+   -webkit-transform: scale(1) ;
+   -o-transform: scale(1) ;
+   -ms-transform: scale(1) ;
+   transform: scale(1) ;
+   opacity: 1;
+ 
+}
+
+
+div#myModal--effect-fullwidth {
+    background: rgba(255, 255, 255, 1);
+}
+
+ 
+p {
+    color: red;
+}
+.feedback {
+    position: relative;
+    height: 10px;
+    margin-bottom: 10px;
+    line-height: 37px;
+    text-align: left;
+    
+}
+.feedback1 {
+    position: relative;
+    height: 10px;
+    line-height: 20px;
+    text-align: left;
+    
+}
+.modal-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.modal-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+
+
+ts
+
+import { Component, OnInit } from '@angular/core';
+import {
+  ReactiveFormsModule,
+  FormsModule,
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder
+} from '@angular/forms';
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class UserComponent implements OnInit {
 
-  error: string;
-  isLoading: boolean;
-  loginForm: FormGroup;
-  userId: FormControl;
-  Password: FormControl;
-  showLogin: boolean;
-  errorMsg: string
-  constructor(
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private authService: AuthService,
-    private apiService : ApiService,
-    public modalService : NgxSmartModalService
+  constructor() { }
 
-  ) {
-    this.createFormControler();
-    this.createForm();
-  }
+  Roles: string[] = [
+    'SFE',
+    'OPS',
+    'CA',
+  ];
 
+  userForm: FormGroup;
+  firstName: FormControl;
+  companyName: FormControl;
+  email : FormControl;
+  role:FormControl;
+  password:FormControl;
 
-  createFormControler() {
-    this.userId = new FormControl('', Validators.required);
-    this.Password = new FormControl('', Validators.required);
+  createFormControls() {
+    this.firstName = new FormControl('', Validators.required);
+    this.companyName = new FormControl('', Validators.required);
+    this.email = new FormControl('', [
+      Validators.required,
+      Validators.pattern("[^ @]*@[^ @]*")
+    ]);
+    this.password = new FormControl('', [
+      Validators.required,
+      Validators.minLength(8)
+    ]);
+    this.role = new FormControl('');
   }
 
   createForm() {
-    this.loginForm = new FormGroup({
-      userId: this.userId,
-      Password: this.Password
-
-    })
+    this.userForm = new FormGroup({
+        firstName: this.firstName,
+        companyName: this.companyName,
+      email: this.email,
+      password: this.password,
+      role: this.role
+    });
   }
-  ngOnInit() { 
-    if(this.authService.getToken()){
-      this.router.navigate(['/dashboard/home'])
-    }else {
-      this.showLogin = true
+  onSubmit() {
+    if (this.userForm.valid && this.userForm.value != "" ) {
+      console.log("Form Submitted!",this.userForm.value);
+
+      this.userForm.reset();
+    } else {
+      alert('pls fill all details')
     }
   }
- 
-
-  login() {
-    this.isLoading = true;
-    let self = this
-    const credentials = this.loginForm.value;
-    if(self.loginForm.valid){
-      self.router.navigate(['/dashboard/home'])
-    // this.authService.login(credentials)
-    //   .pipe(
-    //     map(users => {
-    //       if(users.body && users.body.status === "success" || true){
-
-    //         self.router.navigate(['/dashboard/home'])
-    //         sessionStorage.setItem('token',users.headers.get('leapauthtoken'))
-    //         console.log('Token Data Stroed Into DB')
-             
-           
-    //         // this.apiService.get('/employees/entitlements','users',{}).pipe(
-    //         //   tap(entitlements => {
-    //         //     if(entitlements && entitlements[0]){
-
-    //         //       sessionStorage.setItem('user',entitlements[0].userName)
-    //         //       self.router.navigate(['/dashboard/home'])
-    //         //     }
-    //         //   }),
-    //         //   finalize(() => this.isLoading = false),
-    //         //   catchError(error => of(this.error = error))
-    //         // ).subscribe();
-                        
-
-    //       }else if(users.body && users.body.error === "authError"){
-    //         this.errorMsg = users.body.error
-    //         console.log(users.body.error)
-           
-    //         return throwError(users.body.message)
-    //       }
-    //        else {
-    //         return throwError('Invalid Unknown Error');
-    //       }
-
-          
-    //     }),
-    //     finalize(() => this.isLoading = false),
-    //     catchError(error => of(
-    //       this.errorMsg = error.message ? error.message : 'Invalid Error',
-    //       console.log(error),
-    //       self.openPopUp({
-    //         title : 'Login Failed',
-    //         msg : error.message
-    //       })
-
-    //       ))
-    //   ).subscribe();
-  }
-  // else {
-  //   self.openPopUp({
-  //     title : 'Login Failed',
-  //     msg : 'Please enter mandatory fields with valid information to proceed further'
-  //   })
-  // }
+  ngOnInit() {
+    this.createFormControls();
+    this.createForm();
   }
 
- 
-
-  openPopUp(obj) {
-    console.log(obj,"obj")
-    this.modalService.setModalData(obj, 'infoModal',true);
-    this.modalService.getModal('infoModal').open()
-
-  }
-}
-
-
-scss
-
-// @import '../../shared/theme/conf';
-.login-card {
-    padding: 20px;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    height: auto;
-    .form-group {
-        padding: 0;
-    }
-    .form-label {
-        display: block;
-        color: #26253c;
-        padding: 0 10px;
-    }
-    span.form-label {
-        color: lighten(#26253c, 30%);
-    }
-    .input-group {
-        padding: 0;
-        margin: 25px 0;
-    }
-    .form-control {
-        background: transparent;
-        color:#26253c;
-    }
-    .input-group-addon {
-        background: transparent;
-        border: none;
-        font-size: 16px;
-        color: lighten(#26253c, 20%);
-    }
-    .btn {
-        width: 100%;
-    }
-    .btn-link {
-        margin: 10px 0;
-     color: lighten(#26253c, 30%);
-    }
-}
-   .error{
-    color: red
 }
